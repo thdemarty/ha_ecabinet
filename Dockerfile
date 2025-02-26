@@ -2,7 +2,7 @@ ARG BUILD_FROM
 FROM $BUILD_FROM
 
 # Install requirements for add-on
-RUN apk add --no-cache python3 python3-pip
+RUN apk add --no-cache python3 py3-pip
 
 # Install via pip
 RUN pip3 install "fastapi[standard]"
