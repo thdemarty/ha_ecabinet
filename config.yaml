@@ -1,7 +1,7 @@
-name: "Hello world"
-description: "My first real add-on!"
+name: "e Cabinet"
+description: "e Cabinet is a simple solution to manage connected cabinets."
 version: "1.0.0"
-slug: "hello_world"
+slug: "e_cabinet"
 init: false
 arch:
   - aarch64
