@@ -1,3 +1,2 @@
 #!/usr/bin/with-contenv bashio
-
-echo "Hello world!"
+fastapi dev main.py --host 0.0.0.0

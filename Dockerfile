@@ -1,8 +1,20 @@
-ARG BUILD_FROM
-FROM $BUILD_FROM
+FROM 
 
-# Copy data for add-on
+# Install requirements for add-on
+RUN \
+    apk add --no-cache \
+    python3 \
+    python3-pip \
+
+# Install via pip
+RUN pip3 install "fastapi[standard]"
+
+WORKDIR /app
+
 COPY run.sh /
-RUN chmod a+x /run.sh
+RUN chmod +x /run.sh
 
-CMD [ "/run.sh" ]
+COPY ./api/main.py /main.py
+COPY ./api/db.sqlite /db.sqlite
+
+CMD ["/run.sh"]
