@@ -2,12 +2,14 @@ ARG BUILD_FROM
 FROM $BUILD_FROM
 
 # Install requirements for add-on
-SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+COPY addon_deps.sh /
+RUN a+x addon_deps.sh
+RUN ./addon_deps.sh
+RUN chmod +x addon_deps.sh
 RUN \
     apk add --no-cache \
-         python3 \
-             py3-pip \
-     \
+        python3 \
+        py3-pip \
      && pip3 install fastapi[standard]
 
 WORKDIR /app
