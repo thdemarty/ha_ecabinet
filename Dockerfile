@@ -5,6 +5,7 @@ FROM $BUILD_FROM
 COPY addon_deps.sh /
 RUN a+x addon_deps.sh
 RUN ./addon_deps.sh
+
 RUN chmod +x addon_deps.sh
 RUN \
     apk add --no-cache \
@@ -17,7 +18,7 @@ WORKDIR /app
 COPY run.sh /
 RUN chmod +x /run.sh
 
-COPY ./api/main.py /main.py
-COPY ./api/db.sqlite /db.sqlite
+COPY ./ha_ecabinet/main.py /main.py
+COPY ./ha_ecabinet/db.sqlite /db.sqlite
 
 CMD ["/run.sh"]
