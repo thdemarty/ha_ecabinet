@@ -1,7 +1,4 @@
 #include "i2c.h"
-#include <M5Unified.h>
-
-
 
 bool i2c_check(uint8_t addr)
 {
