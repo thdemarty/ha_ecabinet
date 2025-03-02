@@ -1,7 +1,4 @@
 #include "led_matrix.h"
-#include <M5Unified.h>
-#include <FastLED.h>
-#include <map>
 
 CRGB leds[NUM_LEDS];
 std::map<int, unsigned long> durations;
@@ -9,11 +6,12 @@ int leds_par_placard = MATRIX_SIZE / NB_PLACARDS;
 
 
 void leds_matrix_setup() {
-    FastLED.addLeds<NEOPIXEL, MATRIX_SIGNAL_PIN>(leds, NUM_LEDS);
-    FastLED.clear();
+    gpio_reset_pin(MATRIX_SIGNAL_PIN);
+    pinMode(MY_DATA_PIN, OUTPUT);
+    digitalWrite(MY_DATA_PIN, LOW);
+    FastLED.addLeds<NEOPIXEL, MY_DATA_PIN>(leds, NUM_LEDS);
+    FastLED.showColor(CRGB::Black);
     FastLED.setBrightness(10);
-    FastLED.show();
-
 }
 
 
@@ -31,8 +29,6 @@ void set_leds_color(int placard, CRGB color) {
 
 void light_quarter(int quarter, CRGB color) {
     Serial.println("Lighting quarter " + String(quarter) + " with color " + String(color.r) + " " + String(color.g) + " " + String(color.b));
-    
-    
     // Define LED indices for each quarter
     const int quarterLEDs[4][16] = {
         {0, 1, 2, 3, 8, 9, 10, 11, 16, 17, 18, 19, 24, 25, 26, 27},         // Quart Haut Gauche

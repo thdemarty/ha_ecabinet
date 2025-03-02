@@ -1,22 +1,23 @@
-#include <M5Unified.h>
-#include <WiFi.h>
+#include "wifi.h"
 
-const char * ssid = "Cat S75";
-const char * password = "c7mjx6jau8q64ws";
+const char *ssid = "S20Arnaud";
+const char *password = "@loa2019";
 
-void wifi_setup() {
+void wifi_setup()
+{
+    delay(10);
+    // We start by connecting to a WiFi network
+    Serial.println();
+    Serial.print("Connecting to ");
+    Serial.println(ssid);
     WiFi.begin(ssid, password);
-
-    while (WiFi.status() != WL_CONNECTED) {
-        delay(500);
-        M5.Lcd.print(".");
+    while (WiFi.status() != WL_CONNECTED)
+    {
+        delay(10000);
+        Serial.print(".");
     }
-
-    M5.Lcd.println("");
-    M5.Lcd.fillScreen(BLACK);
-    M5.Lcd.setCursor(0, 0);
-
-    M5.Lcd.println("SSID: " + String(ssid));
-    M5.Lcd.println("IP: " + WiFi.localIP().toString());
-    M5.Lcd.println("MAC: " + WiFi.macAddress());
+    Serial.println("");
+    Serial.println("WiFi connected");
+    Serial.println("IP address: ");
+    Serial.println(WiFi.macAddress());
 }

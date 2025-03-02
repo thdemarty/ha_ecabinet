@@ -1,13 +1,4 @@
 #include "rfid.h"
-// #include "wifi_iot.h"
-
-#include "mqtt.h"
-#include "led_matrix.h"
-#include "i2c.h"
-#include "closet.h"
-#include <sstream>
-#include <iomanip>
-#include <vector>
 
 const uint8_t customAddress = 0x28;
 
@@ -93,10 +84,8 @@ void loop_UIDs(byte *uid_b, byte *length) {
                 Serial.println(uid_str.c_str());
                 
                 char topic[30];
-                sprintf(topic, "placard/%d/add", get_placard_id());
+                sprintf(topic, "cabinet/%d/add", get_cabinet_id());
                 mqtt_publish(topic, const_cast<char*>(uid_str.c_str()));
-
-                // Serial.println();
             }
 
             current_UIDs.push_back(uid_v);
@@ -109,9 +98,9 @@ void loop_UIDs(byte *uid_b, byte *length) {
             Serial.println(uid_str.c_str());
 
             char topic[30];
-            sprintf(topic, "placard/%d/remove", get_placard_id());
+            sprintf(topic, "cabinet/%d/remove", get_cabinet_id());
             mqtt_publish(topic, const_cast<char*>(uid_str.c_str()));
-            show_removal(get_placard_id());
+            show_removal(get_cabinet_id());
         }
     }
     previous_UIDs = current_UIDs;
