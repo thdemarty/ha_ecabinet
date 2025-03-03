@@ -5,7 +5,6 @@ WORKDIR /app
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY db.sqlite db.sqlite
 COPY main.py main.py
 
 EXPOSE 8001
