@@ -1,0 +1,13 @@
+name: REST-CABINET-API
+version: "1.0.0"
+slug: rest_cabinet_api
+description: Un serveur REST pour la gestion des items du placard connecte
+arch:
+  - aarch64
+  - amd64
+  - armhf
+  - armv7
+options: {}
+schema: {}
+ports:
+  8080/tcp: 8001 # Port sur lequel l'API FastAPI écoutera

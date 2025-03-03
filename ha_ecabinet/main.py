@@ -12,14 +12,14 @@ cur = con.cursor()
 
 # absent = 0 means present, absent = 1 means absent
 cur.execute('CREATE TABLE IF NOT EXISTS items (item_name TEXT UNIQUE, cabinet_id INTEGER, absent INTEGER)')
-# cur.execute('INSERT INTO items (item_name, cabinet_id, absent) VALUES ("salt", 1, 0)')
-# cur.execute('INSERT INTO items (item_name, cabinet_id, absent) VALUES ("pepper", 1, 0)')
-# cur.execute('INSERT INTO items (item_name, cabinet_id, absent) VALUES ("sugar", 1, 0)')
-# cur.execute('INSERT INTO items (item_name, cabinet_id, absent) VALUES ("flour", 1, 0)')
-# cur.execute('INSERT INTO items (item_name, cabinet_id, absent) VALUES ("rice", 1, 0)')
-# cur.execute('INSERT INTO items (item_name, cabinet_id, absent) VALUES ("pasta", 1, 0)')
-# cur.execute('INSERT INTO items (item_name, cabinet_id, absent) VALUES ("vinegar", 1, 0)')
-# cur.execute('INSERT INTO items (item_name, cabinet_id, absent) VALUES ("olive oil", 1, 0)')
+cur.execute('INSERT INTO items (item_name, cabinet_id, absent) VALUES ("salt", 1, 0)')
+cur.execute('INSERT INTO items (item_name, cabinet_id, absent) VALUES ("pepper", 1, 0)')
+cur.execute('INSERT INTO items (item_name, cabinet_id, absent) VALUES ("sugar", 1, 0)')
+cur.execute('INSERT INTO items (item_name, cabinet_id, absent) VALUES ("flour", 1, 0)')
+cur.execute('INSERT INTO items (item_name, cabinet_id, absent) VALUES ("rice", 1, 0)')
+cur.execute('INSERT INTO items (item_name, cabinet_id, absent) VALUES ("pasta", 1, 0)')
+cur.execute('INSERT INTO items (item_name, cabinet_id, absent) VALUES ("vinegar", 1, 0)')
+cur.execute('INSERT INTO items (item_name, cabinet_id, absent) VALUES ("olive oil", 1, 0)')
 
 con.commit()
 
