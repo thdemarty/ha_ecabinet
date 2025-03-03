@@ -1,6 +1,6 @@
-name: REST-CABINET-API
+name: eCabinet
 version: "1.0.0"
-slug: rest_cabinet_api
+slug: ha-ecabinet
 description: Un serveur REST pour la gestion des items du placard connecte
 arch:
   - aarch64
