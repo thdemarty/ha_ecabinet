@@ -1,6 +1,6 @@
-name: eCabinet
+name: eCabinet-addon
 version: "1.0.0"
-slug: ha-ecabinet
+slug: ha-ecabinet-addon
 description: Un serveur REST pour la gestion des items du placard connecte
 arch:
   - aarch64
@@ -11,3 +11,5 @@ options: {}
 schema: {}
 ports:
   8080/tcp: 8001 # Port sur lequel l'API FastAPI écoutera
+services:
+  - mqtt
