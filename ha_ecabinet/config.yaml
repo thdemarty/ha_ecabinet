@@ -11,3 +11,4 @@ options: {}
 schema: {}
 ports:
   8080/tcp: 8001 # Port sur lequel l'API FastAPI écoutera
+services: mqtt:need
