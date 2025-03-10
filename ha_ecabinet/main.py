@@ -13,7 +13,7 @@ if not os.path.exists('db.sqlite'):
     open('db.sqlite', 'w').close()
     con = sqlite3.connect('db.sqlite', check_same_thread=False)
     cur = con.cursor()
-    cur.execute('CREATE TABLE IF NOT EXISTS items (tem_name TEXT UNIQUE, cabinet_id INTEGER, absent INTEGER)')
+    cur.execute('CREATE TABLE IF NOT EXISTS items (item_name TEXT UNIQUE, cabinet_id INTEGER, absent INTEGER)')
     cur.execute('INSERT INTO items (item_name, cabinet_id, absent) VALUES ("salt", 1, 0)')
     cur.execute('INSERT INTO items (item_name, cabinet_id, absent) VALUES ("pepper", 1, 0)')
     cur.execute('INSERT INTO items (item_name, cabinet_id, absent) VALUES ("sugar", 1, 0)')
