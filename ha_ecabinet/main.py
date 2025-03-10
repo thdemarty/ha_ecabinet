@@ -13,7 +13,7 @@ if not os.path.exists('db.sqlite'):
     open('db.sqlite', 'w').close()
     con = sqlite3.connect('db.sqlite', check_same_thread=False)
     cur = con.cursor()
-    cur.execute('CREATE TABLE IF NOT EXISTS items (item_name TEXT UNIQUE, cabinet_id INTEGER, absent INTEGER)')
+    cur.execute('CREATE TABLE IF NOT EXISTS items (tem_name TEXT UNIQUE, cabinet_id INTEGER, absent INTEGER)')
     cur.execute('INSERT INTO items (item_name, cabinet_id, absent) VALUES ("salt", 1, 0)')
     cur.execute('INSERT INTO items (item_name, cabinet_id, absent) VALUES ("pepper", 1, 0)')
     cur.execute('INSERT INTO items (item_name, cabinet_id, absent) VALUES ("sugar", 1, 0)')
@@ -57,13 +57,13 @@ def create_item(item: Item):
     con.commit()
     return {'item_name': item.item_name, 'cabinet_id': item.cabinet_id, 'absent': item.absent}
 
-@app.put('/items/{item_name}/take')
+@app.put('/items/{item_name}/remove')
 def take_item(item_name: str):
     cur.execute('UPDATE items SET absent = 1 WHERE item_name = ?', (item_name,))
     con.commit()
     return {'item_name': item_name, 'absent': 1}
 
-@app.put('/items/{item_name}/return')
+@app.put('/items/{item_name}/add')
 def return_item(item_name: str):
     cur.execute('UPDATE items SET absent = 0 WHERE item_name = ?', (item_name,))
     con.commit()
