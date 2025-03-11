@@ -8,6 +8,8 @@ MQTT_HOST = os.environ.get("MQTT_HOST")
 MQTT_USER = os.environ.get("MQTT_USER")
 MQTT_PASSWORD = os.environ.get("MQTT_PASSWORD")
 
+print("host: ")
+print(MQTT_HOST)
 
 def callback(client, userdata, msg):
     # Regex pour extraire l'ID et l'action
