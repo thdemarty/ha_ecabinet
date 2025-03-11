@@ -1,0 +1,17 @@
+build_from:
+  aarch64: "ghcr.io/home-assistant/aarch64-addon-base:10.3"
+  amd64: "ghcr.io/home-assistant/amd64-addon-base:10.3"
+  armhf: "ghcr.io/home-assistant/armhf-addon-base:10.3"
+  armv7: "ghcr.io/home-assistant/armv7-addon-base:10.3"
+  i386: "ghcr.io/home-assistant/i386-addon-base:10.3"
+labels:
+  org.opencontainers.image.title: "Home Assistant Add-on: eCabinet"
+  org.opencontainers.image.description: "This Add-on runs eCabinet"
+  org.opencontainers.image.version: "0.1.0" # Example version
+  slug: "ecabinet" # Add-on slug
+  arch:
+    - "aarch64"
+    - "amd64"
+    - "armhf"
+    - "armv7"
+    - "i386"
