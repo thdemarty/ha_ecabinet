@@ -1,6 +1,6 @@
 name: eCabinet-addon
 version: "1.0.0"
-slug: ha-ecabinet-addon
+slug: ecabinet_addon
 description: Un serveur REST pour la gestion des items du placard
 arch:
   - aarch64

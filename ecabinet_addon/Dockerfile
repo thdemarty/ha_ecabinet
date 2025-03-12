@@ -3,13 +3,18 @@ FROM $BUILD_FROM
 
 WORKDIR /app
 
-RUN \
-  apk add --no-cache \
-    python3 \
-    && python3 -m ensurepip --upgrade
+RUN apt-get update 
+
+RUN apt-get install --no-install-recommends -y gnupg gpg-agent \
+      && apt-get --no-install-recommends install -y \
+      build-essential \
+      python3-dev \
+      python3 \
+      python3-setuptools \
+      python3-pip \
 
 COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip3 install --no-cache-dir -r requirements.txt
 COPY main.py main.py
 COPY automations.py automations.py
 
