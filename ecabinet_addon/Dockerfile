@@ -3,6 +3,7 @@ FROM $BUILD_FROM
 
 RUN apk update && apk add --no-cache \
     python3 \
+    py3-pip \
     build-base \
     python3-dev \
     gnupg \
@@ -14,7 +15,7 @@ WORKDIR /app
 COPY requirements.txt ./
 
 # Activer l'environnement virtuel et installer les dépendances
-RUN pip install --break-system-packages -r requirements.txt
+RUN pip3 install --break-system-packages -r requirements.txt
 
 COPY main.py main.py
 COPY automations.py automations.py
