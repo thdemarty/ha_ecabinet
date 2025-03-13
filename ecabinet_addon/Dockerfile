@@ -3,7 +3,6 @@ FROM $BUILD_FROM
 
 RUN apk update && apk add --no-cache \
     python3 \
-    py3-venv \
     build-base \
     python3-dev \
     gnupg \
