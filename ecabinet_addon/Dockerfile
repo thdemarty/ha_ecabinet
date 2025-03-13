@@ -1,7 +1,6 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
 
-WORKDIR /app
 
 RUN apt-get update 
 
@@ -12,6 +11,8 @@ RUN apt-get install --no-install-recommends -y gnupg gpg-agent \
       python3 \
       python3-setuptools \
       python3-pip \
+
+WORKDIR /app
 
 COPY requirements.txt ./
 RUN pip3 install --no-cache-dir -r requirements.txt

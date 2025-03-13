@@ -9,4 +9,4 @@ export MQTT_HOST MQTT_USER MQTT_PASSWORD
 
 
 uvicorn main:app --host 0.0.0.0 --port 8001 &
-python automations.py
+python3 automations.py
