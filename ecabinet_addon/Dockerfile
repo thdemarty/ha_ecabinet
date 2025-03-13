@@ -12,7 +12,10 @@ RUN apk update && apk add --no-cache \
 WORKDIR /app
 
 COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip3 install --no-cache-dir fastapi[standard]
+RUN pip3 install --no-cache-dir uvicorn
+RUN pip3 install --no-cache-dir paho-mqtt
+RUN pip3 install --no-cache-dir requests
 COPY main.py main.py
 COPY automations.py automations.py
 
