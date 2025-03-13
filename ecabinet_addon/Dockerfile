@@ -2,20 +2,22 @@ ARG BUILD_FROM
 FROM $BUILD_FROM
 
 RUN apk update && apk add --no-cache \
-      python3 \
-      py3-pip \
-      build-base \
-      python3-dev \
-      gnupg \
-      gpg-agent
+    python3 \
+    py3-venv \
+    build-base \
+    python3-dev \
+    gnupg \
+    gpg-agent
 
 WORKDIR /app
 
+# Créer un environnement virtuel
+RUN python3 -m venv /app/venv
+
 COPY requirements.txt ./
-RUN pip3 install --no-cache-dir uvicorn
-RUN pip3 install --no-cache-dir paho-mqtt
-RUN pip3 install --no-cache-dir requests
-RUN pip3 install --no-cache-dir fastapi[standard]
+
+# Activer l'environnement virtuel et installer les dépendances
+RUN /app/venv/bin/pip install --no-cache-dir -r requirements.txt
 
 COPY main.py main.py
 COPY automations.py automations.py
