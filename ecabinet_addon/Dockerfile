@@ -14,7 +14,6 @@ WORKDIR /app
 
 COPY requirements.txt ./
 
-# Activer l'environnement virtuel et installer les dépendances
 RUN pip3 install --break-system-packages -r requirements.txt
 
 COPY main.py main.py

@@ -7,6 +7,4 @@ MQTT_PASSWORD=$(bashio::services mqtt 'password')
 
 export MQTT_HOST MQTT_USER MQTT_PASSWORD
 
-uvicorn main:app --host 0.0.0.0 --port 8001 &
 python3 automations.py
-wait
