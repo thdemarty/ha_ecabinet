@@ -12,7 +12,7 @@ RUN apk update && apk add --no-cache \
 WORKDIR /app
 
 COPY requirements.txt ./
-RUN pip3 install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 COPY main.py main.py
 COPY automations.py automations.py
 
