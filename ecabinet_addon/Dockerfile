@@ -16,7 +16,7 @@ RUN python3 -m venv /app/venv
 COPY requirements.txt ./
 
 # Activer l'environnement virtuel et installer les dépendances
-RUN /app/venv/bin/pip install --no-cache-dir -r requirements.txt
+RUN /app/venv/bin/pip install --break-system-packages -r requirements.txt
 
 COPY main.py main.py
 COPY automations.py automations.py
