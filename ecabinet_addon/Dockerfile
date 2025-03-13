@@ -1,19 +1,14 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
 
-
-RUN \
-  apk add --no-cache \
-    python3
-
-RUN apt-get install --no-install-recommends -y gnupg gpg-agent \
-      && apt-get --no-install-recommends install -y \
-      build-essential \
-      python3-dev \
+RUN apk update && apk add --no-cache \
       python3 \
-      python3-setuptools \
-      python3-pip
-      
+      py3-pip \
+      build-base \
+      python3-dev \
+      gnupg \
+      gpg-agent
+
 WORKDIR /app
 
 COPY requirements.txt ./
@@ -26,4 +21,3 @@ EXPOSE 8001
 COPY run.sh /
 RUN chmod a+x /run.sh
 CMD [ "/run.sh" ]
-
