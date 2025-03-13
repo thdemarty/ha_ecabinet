@@ -7,7 +7,6 @@ arch:
   - amd64
   - armhf
   - armv7
-  - armv7
   - i386
 options: {}
 schema: {}
