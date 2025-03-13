@@ -2,7 +2,9 @@ ARG BUILD_FROM
 FROM $BUILD_FROM
 
 
-RUN apt-get update 
+RUN \
+  apk add --no-cache \
+    python3
 
 RUN apt-get install --no-install-recommends -y gnupg gpg-agent \
       && apt-get --no-install-recommends install -y \
@@ -10,8 +12,8 @@ RUN apt-get install --no-install-recommends -y gnupg gpg-agent \
       python3-dev \
       python3 \
       python3-setuptools \
-      python3-pip \
-
+      python3-pip
+      
 WORKDIR /app
 
 COPY requirements.txt ./
