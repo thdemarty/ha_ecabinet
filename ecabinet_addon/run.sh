@@ -1,5 +1,4 @@
 #!/usr/bin/with-contenv bashio
-source /app/venv/bin/activate
 
 MQTT_HOST=$(bashio::services mqtt 'host')
 MQTT_USER=$(bashio::services mqtt 'username')
