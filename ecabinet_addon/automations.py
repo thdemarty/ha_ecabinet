@@ -8,8 +8,6 @@ MQTT_HOST = os.environ.get("MQTT_HOST")
 MQTT_USER = os.environ.get("MQTT_USER")
 MQTT_PASSWORD = os.environ.get("MQTT_PASSWORD")
 
-print("host: ")
-print(MQTT_HOST)
 
 def callback(client, userdata, msg):
     # Regex pour extraire l'ID et l'action
@@ -22,7 +20,7 @@ def callback(client, userdata, msg):
         item_content = msg.payload.decode()  # Décoder le payload en string
 
         # Construire l'URL de la requête backend
-        backend_url = f"http://{MQTT_HOST}:8001/items/salt/{action}"
+        backend_url = f"http://10.9.26.29:8001/items/salt/add"
 
         # Envoyer la requête au backend (à adapter selon votre backend)
         try:
