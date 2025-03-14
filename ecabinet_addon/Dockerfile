@@ -23,4 +23,4 @@ EXPOSE 8001
 
 COPY run.sh /
 RUN chmod a+x /run.sh
-CMD ["python3", "automations.py"]
+CMD [ "/run.sh" ]
