@@ -20,7 +20,7 @@ def callback(client, userdata, msg):
         item_content = msg.payload.decode()  # Décoder le payload en string
 
         # Construire l'URL de la requête backend
-        backend_url = f"http://0.0.0.0:8001/items/salt/add"
+        backend_url = f"http://0.0.0.0:8080/items/salt/add"
 
         # Envoyer la requête au backend (à adapter selon votre backend)
         try:
