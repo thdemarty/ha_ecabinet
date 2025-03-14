@@ -24,7 +24,7 @@ def callback(client, userdata, msg):
 
         # Envoyer la requête au backend (à adapter selon votre backend)
         try:
-            response = requests.post(backend_url, data={})  # Remplacer data={} par les données nécessaires
+            response = requests.put(backend_url, data={})  # Remplacer data={} par les données nécessaires
             response.raise_for_status()  # Lever une exception en cas d'erreur HTTP
             data = response.json()
             if (data.absent == 0):
