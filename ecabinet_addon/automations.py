@@ -22,11 +22,11 @@ def callback(client, userdata, msg):
         item_content = msg.payload.decode()  # Décoder le payload en string
 
         # Construire l'URL de la requête backend
-        backend_url = f"http://{MQTT_HOST}:8080/items/salt/{action}"
+        backend_url = f"http://{MQTT_HOST}:8001/items/salt/{action}"
 
         # Envoyer la requête au backend (à adapter selon votre backend)
         try:
-            response = requests.put(backend_url, data={})  # Remplacer data={} par les données nécessaires
+            response = requests.put(backend_url, data={'item_name': 'salt', 'cabinet_id': '1'})  # Remplacer data={} par les données nécessaires
             response.raise_for_status()  # Lever une exception en cas d'erreur HTTP
             data = response.json()
             if (data.absent == 0):
