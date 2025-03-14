@@ -29,7 +29,7 @@ def callback(client, userdata, msg):
             response = requests.put(backend_url, data={'item_name': 'salt', 'cabinet_id': '1'})  # Remplacer data={} par les données nécessaires
             response.raise_for_status()  # Lever une exception en cas d'erreur HTTP
             data = response.json()
-            if (data.absent == 0):
+            if (data["absent"] == 0):
                 client.publish('cabinet/1/status','OK')
             print(f"Requête envoyée avec succès à {backend_url}")
         except requests.exceptions.RequestException as e:
