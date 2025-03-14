@@ -13,14 +13,16 @@ print(MQTT_HOST)
 
 def callback(client, userdata, msg):
     # Regex pour extraire l'ID et l'action
+    print("test1")
     match = re.match(r"cabinet/(\d+)/(add|return)", msg.topic)
     if match:
+        print("test2")
         item_id = match.group(1)
         action = match.group(2)
         item_content = msg.payload.decode()  # Décoder le payload en string
 
         # Construire l'URL de la requête backend
-        backend_url = f"http://{MQTT_HOST}:8001/items/salt/{action}"
+        backend_url = f"http://{MQTT_HOST}:8080/items/salt/{action}"
 
         # Envoyer la requête au backend (à adapter selon votre backend)
         try:
